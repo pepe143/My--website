@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products - Pepexx Store</title>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 20px; background: #f9f9f9; }
+    h1 { text-align: center; color: #333; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .product { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-align: center; }
+    .product img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+    .product h3 { margin: 10px 0 5px; }
+    .product p { margin: 5px 0; }
+    .product button { background: #007bff; color: #fff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; }
+    .product button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+
+<h1>Our Products</h1>
+<div class="product-grid" id="product-container"></div>
+
+<script>
+  const products = [
+    {
+      id: "p001",
+      name: "Blue Cotton T-shirt",
+      price: 19.99,
+      image: "images/tshirt-blue.jpg",
+      category: "clothing",
+      description: "Soft cotton t-shirt available in all sizes."
+    },
+    {
+      id: "p002",
+      name: "Baby Soft Shoes",
+      price: 14.50,
+      image: "images/baby-shoes.jpg",
+      category: "baby",
+      description: "Comfortable baby shoes for toddlers 6–12 months."
+    },
+    {
+      id: "p003",
+      name: "Phone Ring Holder",
+      price: 4.99,
+      image: "images/phone-ring.jpg",
+      category: "mobile",
+      description: "360° rotatable phone ring holder with stand function."
+    }
+  ];
+
+  const container = document.getElementById('product-container');
+
+  products.forEach(p => {
+    container.innerHTML += `
+      <div class="product">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>$${p.price.toFixed(2)}</p>
+        <p>${p.description}</p>
+        <button onclick="addToCart('${p.id}')">Add to Cart</button>
+      </div>
+    `;
+  });
+
+  function addToCart(productId) {
+    alert("Added to cart: " + productId);
+  }
+</script>
+
+</body>
+  </html>
