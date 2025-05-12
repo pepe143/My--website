@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baby Products - Pepexx Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h1>Baby Products</h1>
+<div class="product-grid" id="product-container"></div>
+
+<script>
+  const babyProducts = [
+    {
+      id: "b001",
+      name: "Baby Blanket",
+      price: 12.99,
+      image: "images/baby-blanket.jpg",
+      category: "baby",
+      description: "Soft fleece blanket perfect for newborns and infants."
+    },
+    {
+      id: "b002",
+      name: "Baby Feeding Bottle",
+      price: 8.50,
+      image: "images/baby-bottle.jpg",
+      category: "baby",
+      description: "BPA-free 250ml feeding bottle with anti-colic nipple."
+    },
+    {
+      id: "b003",
+      name: "Diaper Bag Organizer",
+      price: 22.00,
+      image: "images/diaper-bag.jpg",
+      category: "baby",
+      description: "Waterproof and stylish diaper bag with multiple pockets."
+    },
+    {
+      id: "b004",
+      name: "Baby Romper Set (3 pcs)",
+      price: 18.75,
+      image: "images/baby-rompers.jpg",
+      category: "baby",
+      description: "Pack of 3 cute cotton rompers for 0–6 months."
+    },
+    {
+      id: "b005",
+      name: "Teething Toy Set",
+      price: 6.99,
+      image: "images/teething-toys.jpg",
+      category: "baby",
+      description: "Colorful, chew-safe silicone toys for teething relief."
+    }
+  ];
+
+  const container = document.getElementById('product-container');
+
+  babyProducts.forEach(p => {
+    container.innerHTML += `
+      <div class="product">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>$${p.price.toFixed(2)}</p>
+        <p>${p.description}</p>
+        <button onclick="addToCart('${p.id}')">Add to Cart</button>
+      </div>
+    `;
+  });
+
+  function addToCart(productId) {
+    alert("Added to cart: " + productId);
+  }
+</script>
+
+</body>
+</html>
