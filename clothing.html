@@ -3,19 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baby Products - Pepexx Store</title>
+  <title>Clothing - Pepexx Store</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-const clothingProducts = [
-  {
-    id: "c001",
-    name: "Blue Cotton T-shirt",
-    price: 19.99,
-    image: "images/tshirt-blue.jpg",
-    category: "clothing",
-    description: "Soft cotton t-shirt available in all sizes."
-  },
-  // Add more clothing items here
-];
+<nav>
+  <a href="products.html">All Products</a>
+  <a href="baby.html">Baby</a>
+  <a href="clothing.html">Clothing</a>
+  <a href="mobile.html">Mobile</a>
+</nav>
+
+<h1>Clothing</h1>
+<div class="product-grid" id="product-container"></div>
+
+<script>
+  const clothingProducts = [
+    {
+      id: "c001",
+      name: "Blue Cotton T-shirt",
+      price: 19.99,
+      image: "images/tshirt-blue.jpg",
+      category: "clothing",
+      description: "Soft cotton t-shirt available in all sizes."
+    },
+    {
+      id: "c002",
+      name: "Hoodie Sweatshirt",
+      price: 29.50,
+      image: "images/hoodie.jpg",
+      category: "clothing",
+      description: "Cozy fleece hoodie for all-day comfort."
+    },
+    {
+      id: "c003",
+      name: "Slim Fit Jeans",
+      price: 34.00,
+      image: "images/jeans.jpg",
+      category: "clothing",
+      description: "Stretchable jeans with a modern fit."
+    },
+    {
+      id: "c004",
+      name: "Graphic Tee Pack (2 pcs)",
+      price: 24.75,
+      image: "images/graphic-tees.jpg",
+      category: "clothing",
+      description: "Trendy graphic tees in a 2-pack combo."
+    },
+    {
+      id: "c005",
+      name: "Summer Shorts",
+      price: 16.99,
+      image: "images/summer-shorts.jpg",
+      category: "clothing",
+      description: "Lightweight shorts perfect for warm weather."
+    }
+  ];
+
+  const container = document.getElementById('product-container');
+
+  clothingProducts.forEach(p => {
+    container.innerHTML += `
+      <div class="product">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>$${p.price.toFixed(2)}</p>
+        <p>${p.description}</p>
+        <button onclick="addToCart('${p.id}')">Add to Cart</button>
+      </div>
+    `;
+  });
+
+  function addToCart(productId) {
+    alert("Added to cart: " + productId);
+  }
+</script>
+
+</body>
+</html>
