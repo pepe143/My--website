@@ -3,19 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baby Products - Pepexx Store</title>
+  <title>Mobile Accessories - Pepexx Store</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-const mobileProducts = [
-  {
-    id: "m001",
-    name: "Phone Ring Holder",
-    price: 4.99,
-    image: "images/phone-ring.jpg",
-    category: "mobile",
-    description: "360° rotatable phone ring holder with stand function."
-  },
-  // Add more mobile accessories here
-];
+<nav>
+  <a href="products.html">All Products</a>
+  <a href="baby.html">Baby</a>
+  <a href="clothing.html">Clothing</a>
+  <a href="mobile.html">Mobile</a>
+</nav>
+
+<h1>Mobile Accessories</h1>
+<div class="product-grid" id="product-container"></div>
+
+<script>
+  const mobileProducts = [
+    {
+      id: "m001",
+      name: "Phone Ring Holder",
+      price: 4.99,
+      image: "images/phone-ring.jpg",
+      category: "mobile",
+      description: "360° rotatable phone ring holder with stand."
+    },
+    {
+      id: "m002",
+      name: "USB-C Fast Charger",
+      price: 14.50,
+      image: "images/fast-charger.jpg",
+      category: "mobile",
+      description: "18W wall adapter for fast charging smartphones."
+    },
+    {
+      id: "m003",
+      name: "Magnetic Phone Mount",
+      price: 10.99,
+      image: "images/phone-mount.jpg",
+      category: "mobile",
+      description: "Air vent mount with strong magnetic grip."
+    },
+    {
+      id: "m004",
+      name: "Wireless Earbuds",
+      price: 39.95,
+      image: "images/earbuds.jpg",
+      category: "mobile",
+      description: "Bluetooth earbuds with noise isolation and mic."
+    },
+    {
+      id: "m005",
+      name: "Phone Cleaning Kit",
+      price: 6.50,
+      image: "images/cleaning-kit.jpg",
+      category: "mobile",
+      description: "Microfiber wipes and cleaning fluid for screens."
+    }
+  ];
+
+  const container = document.getElementById('product-container');
+
+  mobileProducts.forEach(p => {
+    container.innerHTML += `
+      <div class="product">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>$${p.price.toFixed(2)}</p>
+        <p>${p.description}</p>
+        <button onclick="addToCart('${p.id}')">Add to Cart</button>
+      </div>
+    `;
+  });
+
+  function addToCart(productId) {
+    alert("Added to cart: " + productId);
+  }
+</script>
+
+</body>
+</html>
